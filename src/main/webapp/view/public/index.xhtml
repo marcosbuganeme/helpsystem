@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Help System v1.0</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:panelGroup>
+				<h:outputLabel value="Nome: " for="nome" />
+				<span class="campoObrigatorio">*</span>
+			</h:panelGroup>
+			<h:inputText id="nome" />
+
+			<h:panelGroup>
+				<h:outputLabel value="E-mail: " for="email" />
+				<span class="campoObrigatorio">*</span>
+			</h:panelGroup>
+			<h:inputText id=""email"" />
+
+			<h:panelGroup>
+				<h:outputLabel value="Senha: " for="senha" />
+				<span class="campoObrigatorio">*</span>
+			</h:panelGroup>
+			<h:inputText id="senha" />
+
+			<h:panelGroup>
+				<h:outputLabel value="Confirme a senha: " for="confirmarSenha" />
+				<span class="campoObrigatorio">*</span>
+			</h:panelGroup>
+			<h:inputText id="confirmarSenha" />
+		</h:panelGrid>
+		
+		<h:commandButton id="btnSalvar" />
+	</h:form>
+</h:body>
+</html>
