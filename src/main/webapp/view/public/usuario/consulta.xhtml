@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<h:head>
+	<title>Help System v1.0</title>
+	<h:outputStylesheet library="css" name="br.com.helpsystem.css" />
+</h:head>
+
+<h:body>
+	<h:form id="frm">
+
+		<h:messages id="msg" tooltip="true" />
+
+		<h1>Consulta de usuários</h1>
+
+		<h:panelGrid columns="6">
+			<h:outputLabel value="Nome: " for="nome" />
+			<h:inputText id="nome" value="#{usuarioController.formulario.nome}" />
+
+			<h:outputLabel value="E-mail: " for="email" />
+			<h:inputText id="email" value="#{usuarioController.formulario.email}" />
+
+			<h:commandButton id="btnSalvar" value="Pesquisar">
+				<f:ajax execute="frm:nome frm:email" listener="#{usuarioController.pesquisar()}" render="frm:tabelaUsuario frm:msg" />
+			</h:commandButton>
+
+			<h:commandButton id="btnResetar" value="Limpar">
+				<f:ajax execute="frm:nome frm:email frm:tabelaUsuario" listener="#{usuarioController.limparDados()}" render="frm:nome frm:email frm:tabelaUsuario frm:msg" />
+			</h:commandButton>
+		</h:panelGrid>
+
+		<h2>Tabela de usuários</h2>
+
+		<h:dataTable id="tabelaUsuario" value="#{usuarioController.formulario.entidades}" var="user">
+			<h:column>
+				<f:facet name="header">id</f:facet>
+				<h:outputText value="#{user.id}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">nome</f:facet>
+				<h:outputText value="#{user.nome}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">e-mail</f:facet>
+				<h:outputText value="#{user.email}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">cadastrado em</f:facet>
+				<h:outputText value="#{user.cadastro}" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>
