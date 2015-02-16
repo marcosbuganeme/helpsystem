@@ -76,7 +76,7 @@ public class HibernateDAO<E extends Entidade> implements DAO<E> {
 	 *
 	 * @return <i>objeto criteria da entidade manipulada</i>.
 	 */
-	private Criteria getCriteria() {
+	protected Criteria getCriteria() {
 
 		final Class<E> tipoEntidade = this.getTipoEntidade();
 
@@ -88,7 +88,7 @@ public class HibernateDAO<E extends Entidade> implements DAO<E> {
 	 *
 	 * @return <code>EntityManager</code>
 	 */
-	public EntityManager getManager() {
+	protected EntityManager getManager() {
 
 		return this.manager;
 	}

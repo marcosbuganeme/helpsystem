@@ -18,7 +18,7 @@ public abstract class Controller<E extends Entidade> implements Serializable {
 	private static final long serialVersionUID = 8372272732585506716L;
 
 	/** Constante PATH_ARQUIVO_INTERNACIONALIZACAO. */
-	private static final String PATH_ARQUIVO_INTERNACIONALIZACAO = "br.com.helpsystem.mensagens";
+	private static final String PATH_ARQUIVO_INTERNACIONALIZACAO = "br.com.helpsystem.bundle.mensagens";
 
 	/** Atributo msg. */
 	@Inject
@@ -43,6 +43,17 @@ public abstract class Controller<E extends Entidade> implements Serializable {
 	protected abstract ServiceFacade<E> getServiceFacade();
 
 	/**
+	 * Método responsável por iniciarlizar os dados de um ECDU.
+	 *
+	 * @author marcosbuganeme
+	 */
+	protected abstract void iniciarDados();
+
+	public void limparDados() {
+
+	}
+
+	/**
 	 * Método responsável por salvar um registro.
 	 *
 	 * @author marcosbuganeme
@@ -51,9 +62,11 @@ public abstract class Controller<E extends Entidade> implements Serializable {
 
 		try {
 
-			final String msgSalvoSucesso = this.getServiceFacade().salvar(this.getFormulario().getEntidade());
+			final String msgSalvoSucesso = this.getMensagem(this.getServiceFacade().salvar(this.getFormulario().getEntidade()));
 
 			this.msg.info(msgSalvoSucesso);
+
+			this.limparDados();
 
 		} catch (final NegocioException e) {
 
@@ -72,7 +85,7 @@ public abstract class Controller<E extends Entidade> implements Serializable {
 
 		try {
 
-			final String msgMescladoSucesso = this.getServiceFacade().mesclar(this.getFormulario().getEntidade());
+			final String msgMescladoSucesso = this.getMensagem(this.getServiceFacade().mesclar(this.getFormulario().getEntidade()));
 
 			msg.info(msgMescladoSucesso);
 
@@ -91,7 +104,9 @@ public abstract class Controller<E extends Entidade> implements Serializable {
 	 */
 	public void atualizar() {
 
-		this.getServiceFacade().atualizar(this.getFormulario().getEntidade());
+		final String mensagenAtualizado = this.getMensagem(this.getServiceFacade().atualizar(this.getFormulario().getEntidade()));
+
+		msg.info(mensagenAtualizado);
 	}
 
 	/**
@@ -103,7 +118,7 @@ public abstract class Controller<E extends Entidade> implements Serializable {
 
 		try {
 
-			final String mensagemRemovido = this.getServiceFacade().remover(this.getFormulario().getEntidade());
+			final String mensagemRemovido = this.getMensagem(this.getServiceFacade().remover(this.getFormulario().getEntidade()));
 
 			msg.info(mensagemRemovido);
 

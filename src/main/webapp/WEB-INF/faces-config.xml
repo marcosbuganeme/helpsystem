@@ -5,6 +5,8 @@
 
 	<application>
 
+		<message-bundle>br.com.helpsystem.bundle.mensagens</message-bundle>
+
 	</application>
 
 </faces-config>

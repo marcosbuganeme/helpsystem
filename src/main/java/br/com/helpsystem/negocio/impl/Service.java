@@ -7,6 +7,7 @@ import br.com.helpsystem.excecao.RegistroNaoExisteException;
 import br.com.helpsystem.modelo.Entidade;
 import br.com.helpsystem.negocio.ServiceFacade;
 import br.com.helpsystem.persistencia.DAO;
+import br.com.helpsystem.utilitario.jpa.Transacao;
 
 public abstract class Service<E extends Entidade> implements ServiceFacade<E> {
 
@@ -43,6 +44,7 @@ public abstract class Service<E extends Entidade> implements ServiceFacade<E> {
 	}
 
 	@Override
+	@Transacao
 	public String salvar(final E entidade) throws NegocioException {
 
 		this.getDAO().salvar(entidade);
@@ -51,6 +53,7 @@ public abstract class Service<E extends Entidade> implements ServiceFacade<E> {
 	}
 
 	@Override
+	@Transacao
 	public String mesclar(final E entidade) throws NegocioException {
 
 		this.getDAO().mesclar(entidade);
@@ -67,6 +70,7 @@ public abstract class Service<E extends Entidade> implements ServiceFacade<E> {
 	}
 
 	@Override
+	@Transacao
 	public String remover(final E entidade) throws NegocioException {
 
 		if (entidade == null) {
