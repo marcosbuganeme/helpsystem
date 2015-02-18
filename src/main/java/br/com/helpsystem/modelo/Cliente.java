@@ -1,13 +1,14 @@
 package br.com.helpsystem.modelo;
 
-import java.util.Date;
-
 import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import br.com.helpsystem.modelo.enuns.EnumTipoCliente;
 
+@Entity
 public class Cliente extends EntidadeHelpSystem {
 
 	/** Constante serialVersionUID. */
@@ -17,27 +18,13 @@ public class Cliente extends EntidadeHelpSystem {
 	@Column(name = "tipo_pessoa")
 	private EnumTipoCliente tipoCliente;
 
-	private String nome;
+	/** Atributo fisica. */
+	@Embedded
+	private PessoaFisica fisica;
 
-	private String email;
-
-	private String rg;
-
-	private String cpf;
-
-	private Date nascimento;
-
-	private String sexo;
-
-	private String razaoSocial;
-
-	private String nomeFantasia;
-
-	private String cpnj;
-
-	private String inscricaoEstadual;
-
-	private String siteInstitucional;
+	/** Atributo juridica. */
+	@Embedded
+	private PessoaJuridica juridica;
 
 	private Endereco endereco;
 }

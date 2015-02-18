@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<title>
+		<ui:insert name="titulo">HelpSystem versão 1.0</ui:insert>
+	</title>
+	<meta name="description" content="helpsystem - Sistema gerenciador da help" />
+	<meta name="author" content="Marcos Olavo Silva Buganeme" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap-theme.min.css" />
+	<h:outputStylesheet library="css" name="br.com.helpsystem.css" />
+</h:head>
+
+<h:body>
+	<ui:include src="/WEB-INF/layout/navbar.xhtml" />
+
+	<div class="container">
+		<header>
+			<h1 class="page-header">
+				<ui:insert name="titulo_cabecalho" />
+			</h1>
+		</header>
+		<br />
+		<ui:insert name="corpo" />
+	</div>
+
+	<h:outputScript library="js" name="br.com.helpsystem.js" />
+	<h:outputScript library="js" name="jquery-1.11.2.min.js" />
+	<h:outputScript library="js" name="bootstrap.min.js" />
+</h:body>
+
+</html>
