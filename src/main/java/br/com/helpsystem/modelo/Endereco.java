@@ -2,14 +2,25 @@ package br.com.helpsystem.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "endereco")
 public class Endereco extends EntidadeHelpSystem {
 
 	/** Constante serialVersionUID. */
 	private static final long serialVersionUID = -7287740270026585702L;
 
+	/** Atributo cliente. */
+	@OneToOne
+	@JoinColumn(name = "id_cliente", foreignKey = @ForeignKey(name = "FK_CLIENTE_ENDERECO"))
+	private Cliente cliente;
+
 	/** Atributo cep. */
+	@Column(name = "cep", length = 8)
 	private String cep;
 
 	/** Atributo cidade. */

@@ -15,7 +15,7 @@ public class PessoaJuridica {
 	private String nomeFantasia;
 
 	/** Atributo cpnj. */
-	private String cpnj;
+	private String cnpj;
 
 	/** Atributo inscricaoEstadual. */
 	@Column(name = "inscricao_estadual")
@@ -65,7 +65,7 @@ public class PessoaJuridica {
 	 */
 	public String getRazaoSocial() {
 
-		return razaoSocial;
+		return this.razaoSocial;
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class PessoaJuridica {
 	 *
 	 * @param razaoSocial
 	 */
-	public void setRazaoSocial(String razaoSocial) {
+	public void setRazaoSocial(final String razaoSocial) {
 
 		this.razaoSocial = razaoSocial;
 	}
@@ -85,7 +85,7 @@ public class PessoaJuridica {
 	 */
 	public String getNomeFantasia() {
 
-		return nomeFantasia;
+		return this.nomeFantasia;
 	}
 
 	/**
@@ -93,29 +93,29 @@ public class PessoaJuridica {
 	 *
 	 * @param nomeFantasia
 	 */
-	public void setNomeFantasia(String nomeFantasia) {
+	public void setNomeFantasia(final String nomeFantasia) {
 
 		this.nomeFantasia = nomeFantasia;
 	}
 
 	/**
-	 * Retorna o valor do atributo <code>cpnj</code>
+	 * Retorna o valor do atributo <code>cnpj</code>
 	 *
 	 * @return <code>String</code>
 	 */
-	public String getCpnj() {
+	public String getCnpj() {
 
-		return cpnj;
+		return this.cnpj;
 	}
 
 	/**
-	 * Define o valor do atributo <code>cpnj</code>.
+	 * Define o valor do atributo <code>cnpj</code>.
 	 *
-	 * @param cpnj
+	 * @param cnpj
 	 */
-	public void setCpnj(String cpnj) {
+	public void setCnpj(final String cnpj) {
 
-		this.cpnj = cpnj;
+		this.cnpj = cnpj;
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class PessoaJuridica {
 	 */
 	public String getInscricaoEstadual() {
 
-		return inscricaoEstadual;
+		return this.inscricaoEstadual;
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class PessoaJuridica {
 	 *
 	 * @param inscricaoEstadual
 	 */
-	public void setInscricaoEstadual(String inscricaoEstadual) {
+	public void setInscricaoEstadual(final String inscricaoEstadual) {
 
 		this.inscricaoEstadual = inscricaoEstadual;
 	}
@@ -145,7 +145,7 @@ public class PessoaJuridica {
 	 */
 	public String getSiteInstitucional() {
 
-		return siteInstitucional;
+		return this.siteInstitucional;
 	}
 
 	/**
@@ -153,7 +153,7 @@ public class PessoaJuridica {
 	 *
 	 * @param siteInstitucional
 	 */
-	public void setSiteInstitucional(String siteInstitucional) {
+	public void setSiteInstitucional(final String siteInstitucional) {
 
 		this.siteInstitucional = siteInstitucional;
 	}
